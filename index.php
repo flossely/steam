@@ -28,6 +28,16 @@ if ($id == '') {
     $pkgBody = $pkgExp[1];
     $background = $pkgLaunchBack;
 }
+foreach ($list as $key=>$value) {
+    $seqPkgID = basename($value, '.pkg');
+    $seqPkgOpen = file_get_contents($value);
+    $seqPkgExp = explode('=|1|=', $seqPkgOpen);
+    $seqPkgHead = $seqPkgExp[0];
+    $seqPkgHeadExp = explode('=|2|=', $seqPkgHead);
+    $seqPkgUser = $seqPkgHeadExp[0];
+    $seqPkgBody = $seqPkgExp[1];
+    $seqList .= 'i,from,'.$seqPkgID.','.$seqPkgUser.';';
+}
 ?>
 <html>
 <head>
@@ -136,7 +146,7 @@ input, select, textarea {
 <body>
 <div class='top'>
 <input class='actionButton' type='button' value="Home" onclick="window.location.href='index.php';">
-<input class='actionButton' type='button' value="Update" onclick="get('i','from','steam','<?=$srcPubRepo;?>');">
+<input class='actionButton' type='button' value="Update All" onclick="seq('<?=$seqList;?>');">
 <input class='actionButton' type='button' value="Get HSIS!" onclick="get('r','steam','hsis','<?=$srcPubRepo;?>');">
 </div>
 <div class='panel'>
