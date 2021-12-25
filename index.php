@@ -7,7 +7,8 @@ if ($id == '') {
     $backgroundFile = file_get_contents('background');
     $background = (file_exists($backgroundFile)) ? $backgroundFile : 'https://github.com/eurohouse/eurohot/blob/main/back.canada.png?raw=true';
 } else {
-    $pkgOpen = file_get_contents($id.'.pkg');
+    $pkgID = $id;
+    $pkgOpen = file_get_contents($pkgID.'.pkg');
     $pkgExp = explode('=|1|=', $pkgOpen);
     $pkgHead = $pkgExp[0];
     $pkgHeadExp = explode('=|2|=', $pkgHead);
