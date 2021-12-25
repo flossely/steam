@@ -156,18 +156,19 @@ input, select, textarea {
         $pkgBuild = $pkgHeadExp[3];
         $pkgCreated = $pkgHeadExp[4];
         $pkgDescription = $pkgHeadExp[5];
-        $pkgLaunch = $pkgHeadExp[6];
-        $pkgLaunchExp = explode('=|3|=', $pkgLaunch);
-        $pkgLaunchTitle = $pkgLaunchExp[0];
-        $pkgLaunchAuthor = $pkgLaunchExp[1];
-        $pkgLaunchIcon = $pkgLaunchExp[2];
-        $pkgLaunchImage = $pkgLaunchExp[3];
-        $pkgLaunchBack = $pkgLaunchExp[4];
-        $pkgLaunchApp = $pkgLaunchExp[5];
-        $pkgBody = $pkgExp[1];
+        if (isset($pkgHeadExp[6])) {
+            $pkgLaunch = $pkgHeadExp[6];
+            $pkgLaunchExp = explode('=|3|=', $pkgLaunch);
+            $pkgLaunchTitle = $pkgLaunchExp[0];
+            $pkgLaunchAuthor = $pkgLaunchExp[1];
+            $pkgLaunchIcon = $pkgLaunchExp[2];
+            $pkgLaunchImage = $pkgLaunchExp[3];
+            $pkgLaunchBack = $pkgLaunchExp[4];
+            $pkgLaunchApp = $pkgLaunchExp[5];
+            $pkgBody = $pkgExp[1];
 ?>
 <img style="width:20%;position:relative;" title="<?=$pkgLaunchTitle.' by '.$pkgLaunchAuthor;?>" src="<?=$pkgLaunchBack;?>" onclick="window.location.href='index.php?id=<?=$pkgID;?>';">
-<?php } ?>
+<?php }} ?>
 </p>
 <?php } else { ?>
     <h2 align='center'><img style="height:92px;position:relative;" src="<?=$pkgLaunchIcon;?>"> <?=$pkgLaunchTitle;?></h2>
