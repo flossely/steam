@@ -28,6 +28,8 @@ if ($id == '') {
         $pkgLaunchBack = $pkgID.'.back.png';
         $background = $pkgLaunchBack;
     }
+    $backgroundFile = file_get_contents('background');
+    $background = (file_exists($backgroundFile)) ? $backgroundFile : 'https://github.com/eurohouse/eurohot/blob/main/back.canada.png?raw=true';
 }
 ?>
 <html>
