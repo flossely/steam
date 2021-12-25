@@ -169,7 +169,9 @@ input, select, textarea {
 <?php } ?>
 </p>
 <?php } else { ?>
-
+    <h2 align='center'><img style="height:128px;position:relative;" src="<?=$pkgLaunchIcon;?>"> <?=$pkgLaunchTitle;?></h2>
+    <p align='center'><?=$phpLaunchAuthor;?></p>
+    <p align='center'><input class='actionButton' type='button' value="Play" onclick="window.location.href='<?=$pkgLaunchApp;?>';"></p>
 <?php } ?>
 </div>
 </body>
