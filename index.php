@@ -134,8 +134,8 @@ input, select, textarea {
 </head>
 <body>
 <div class='top'>
-<input class='actionButton' type='button' value="Update" onclick="get('i','from','<?=$thisSystem;?>','<?=$srcPubRepo;?>');">
-<input class='actionButton' type='button' value="Get HSIS!" onclick="get('r','<?=$thisSystem;?>','hsis','<?=$srcPubRepo;?>');">
+<input class='actionButton' type='button' value="Update" onclick="get('i','from','steam','<?=$srcPubRepo;?>');">
+<input class='actionButton' type='button' value="Get HSIS!" onclick="get('r','steam','hsis','<?=$srcPubRepo;?>');">
 </div>
 <div class='panel'>
 <?php if ($id == '') { ?>
