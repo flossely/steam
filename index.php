@@ -23,9 +23,9 @@ if ($id == '') {
         $pkgLaunchExp = explode('=|3|=', $pkgLaunch);
         $pkgLaunchTitle = $pkgLaunchExp[0];
         $pkgLaunchAuthor = $pkgLaunchExp[1];
-        $pkgLaunchCover = $pkgLaunchExp[2];
-        $pkgLaunchBack = $pkgLaunchExp[3];
-        $pkgLaunchApp = $pkgLaunchExp[4];
+        $pkgLaunchApp = $pkgLaunchExp[2];
+        $pkgLaunchCover = $pkgID.'.cover.png';
+        $pkgLaunchBack = $pkgID.'.back.png';
         $background = $pkgLaunchBack;
     }
 }
@@ -163,9 +163,9 @@ input, select, textarea {
             $pkgLaunchExp = explode('=|3|=', $pkgLaunch);
             $pkgLaunchTitle = $pkgLaunchExp[0];
             $pkgLaunchAuthor = $pkgLaunchExp[1];
-            $pkgLaunchCover = $pkgLaunchExp[2];
-            $pkgLaunchBack = $pkgLaunchExp[3];
-            $pkgLaunchApp = $pkgLaunchExp[4];
+            $pkgLaunchApp = $pkgLaunchExp[2];
+            $pkgLaunchCover = $pkgID.'.cover.png';
+            $pkgLaunchBack = $pkgID.'.back.png';
 ?>
 <img id="gameIMG" style="height:20%;position:relative;" onmouseover="gameIMG.src='<?=$pkgLaunchBack;?>';" title="<?=$pkgLaunchTitle;?>" src="<?=$pkgLaunchCover;?>" onclick="window.location.href='index.php?id=<?=$pkgID;?>';">
 <?php }} ?>
