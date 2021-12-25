@@ -4,7 +4,8 @@ include 'gi.php';
 $list = str_replace($dir.'/','',(glob($dir.'/*.pkg')));
 $id = $_REQUEST['id'] ? $_REQUEST['id'] : '';
 if ($id == '') {
-    $background = file_get_contents('background');
+    $backgroundFile = file_get_contents('background');
+    $background = (file_exists($backgroundFile)) ? $backgroundFile : 'https://github.com/eurohouse/eurohot/blob/main/back.canada.png?raw=true';
 } else {
     $pkgOpen = file_get_contents($id.'.pkg');
     $pkgExp = explode('=|1|=', $pkgOpen);
