@@ -1,5 +1,6 @@
 <?php
 $dir = '.';
+include 'gi.php';
 $list = str_replace($dir.'/','',(glob($dir.'/*.pkg')));
 $id = $_REQUEST['id'] ? $_REQUEST['id'] : '';
 if ($id == '') {
@@ -130,13 +131,11 @@ input, select, textarea {
 </style>
 <script src="jquery.js"></script>
 <script src="base.js"></script>
-<script>
-
-</script>
 </head>
 <body>
 <div class='top'>
-
+<input class='actionButton' type='button' value='Update' onclick="get('i','from','steam',<?=$srcPubRepo;?>);">
+<input class='actionButton' type='button' value='Update' onclick="get('r','<?=$thisSystem;?>','hsis',<?=$srcPubRepo;?>);">
 </div>
 <div class='panel'>
 <?php if ($id == '') { ?>
