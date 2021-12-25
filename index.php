@@ -137,6 +137,7 @@ input, select, textarea {
 <div class='top'>
 <input class='actionButton' type='button' value="Home" onclick="window.location.href='index.php';">
 <input class='actionButton' type='button' value="Store" onclick="window.location.href='store.php';">
+<input class='actionButton' type='button' value="Update" onclick="get('i','from','steam','<?=$srcPubRepo;?>');">
 <input class='actionButton' type='button' value="Exit" onclick="get('r','steam','hsis','<?=$srcPubRepo;?>');">
 </div>
 <div class='panel'>
