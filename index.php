@@ -167,7 +167,7 @@ input, select, textarea {
             $pkgLaunchCover = $pkgID.'.cover.png';
             $pkgLaunchBack = $pkgID.'.back.png';
 ?>
-<img id="gameIMG" style="height:20%;position:relative;" onmouseover="gameIMG.src='<?=$pkgLaunchBack;?>';" title="<?=$pkgLaunchTitle;?>" src="<?=$pkgLaunchCover;?>" onclick="window.location.href='index.php?id=<?=$pkgID;?>';">
+<img style="height:20%;position:relative;" title="<?=$pkgLaunchTitle;?>" src="<?=$pkgLaunchCover;?>" onclick="window.location.href='index.php?id=<?=$pkgID;?>';">
 <?php }} ?>
 </p>
 <?php } else { ?>
