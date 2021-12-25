@@ -163,7 +163,7 @@ input, select, textarea {
         $pkgLaunchApp = $pkgLaunchExp[5];
         $pkgBody = $pkgExp[1];
 ?>
-<img style="width:20%;position:relative;" title="<?=$pkgDescription;?>" src="sys.pkg.png" onclick="window.location.href='index.php?id=<?=$pkgLaunchImage;?>';">
+<img style="width:20%;position:relative;" title="<?=$pkgLaunchTitle.' by '.$pkgLaunchAuthor;?>" src="<?=$pkgLaunchImage;?>" onclick="window.location.href='index.php?id=<?=$pkgID;?>';">
 <?php } ?>
 </p>
 <?php } else { ?>
