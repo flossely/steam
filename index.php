@@ -167,7 +167,7 @@ input, select, textarea {
             $pkgLaunchBack = $pkgLaunchExp[3];
             $pkgLaunchApp = $pkgLaunchExp[4];
 ?>
-<img id="gameIMG" style="width:20%;position:relative;" onhover="gameIMG.src='<?=$pkgLaunchBack;?>';" title="<?=$pkgLaunchTitle;?>" src="<?=$pkgLaunchCover;?>" onclick="window.location.href='index.php?id=<?=$pkgID;?>';">
+<img id="gameIMG" style="height:10%;position:relative;" onhover="gameIMG.src='<?=$pkgLaunchBack;?>';" title="<?=$pkgLaunchTitle;?>" src="<?=$pkgLaunchCover;?>" onclick="window.location.href='index.php?id=<?=$pkgID;?>';">
 <?php }} ?>
 </p>
 <?php } else { ?>
