@@ -17,16 +17,17 @@ if ($id == '') {
     $pkgBuild = $pkgHeadExp[3];
     $pkgCreated = $pkgHeadExp[4];
     $pkgDescription = $pkgHeadExp[5];
-    $pkgLaunch = $pkgHeadExp[6];
-    $pkgLaunchExp = explode('=|3|=', $pkgLaunch);
-    $pkgLaunchTitle = $pkgLaunchExp[0];
-    $pkgLaunchAuthor = $pkgLaunchExp[1];
-    $pkgLaunchIcon = $pkgLaunchExp[2];
-    $pkgLaunchImage = $pkgLaunchExp[3];
-    $pkgLaunchBack = $pkgLaunchExp[4];
-    $pkgLaunchApp = $pkgLaunchExp[5];
     $pkgBody = $pkgExp[1];
-    $background = $pkgLaunchBack;
+    if (isset($pkgHeadExp[6])) {
+        $pkgLaunch = $pkgHeadExp[6];
+        $pkgLaunchExp = explode('=|3|=', $pkgLaunch);
+        $pkgLaunchTitle = $pkgLaunchExp[0];
+        $pkgLaunchAuthor = $pkgLaunchExp[1];
+        $pkgLaunchCover = $pkgLaunchExp[2];
+        $pkgLaunchBack = $pkgLaunchExp[3];
+        $pkgLaunchApp = $pkgLaunchExp[4];
+        $background = $pkgLaunchBack;
+    }
 }
 ?>
 <html>
@@ -156,18 +157,17 @@ input, select, textarea {
         $pkgBuild = $pkgHeadExp[3];
         $pkgCreated = $pkgHeadExp[4];
         $pkgDescription = $pkgHeadExp[5];
+        $pkgBody = $pkgExp[1];
         if (isset($pkgHeadExp[6])) {
             $pkgLaunch = $pkgHeadExp[6];
             $pkgLaunchExp = explode('=|3|=', $pkgLaunch);
             $pkgLaunchTitle = $pkgLaunchExp[0];
             $pkgLaunchAuthor = $pkgLaunchExp[1];
-            $pkgLaunchIcon = $pkgLaunchExp[2];
-            $pkgLaunchImage = $pkgLaunchExp[3];
-            $pkgLaunchBack = $pkgLaunchExp[4];
-            $pkgLaunchApp = $pkgLaunchExp[5];
-            $pkgBody = $pkgExp[1];
+            $pkgLaunchCover = $pkgLaunchExp[2];
+            $pkgLaunchBack = $pkgLaunchExp[3];
+            $pkgLaunchApp = $pkgLaunchExp[4];
 ?>
-<img style="width:20%;position:relative;" title="<?=$pkgLaunchTitle.' by '.$pkgLaunchAuthor;?>" src="<?=$pkgLaunchBack;?>" onclick="window.location.href='index.php?id=<?=$pkgID;?>';">
+<img id="gameIMG" style="width:20%;position:relative;" onhover="gameIMG.src='<?=$pkgLaunchBack;?>';" title="<?=$pkgLaunchTitle;?>" src="<?=$pkgLaunchCover;?>" onclick="window.location.href='index.php?id=<?=$pkgID;?>';">
 <?php }} ?>
 </p>
 <?php } else { ?>
