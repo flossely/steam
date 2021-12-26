@@ -2,35 +2,41 @@
 $dir = '.';
 include 'gi.php';
 $list = str_replace($dir.'/','',(glob($dir.'/*.pkg')));
+$mode = $_REQUEST['mode'] ? $_REQUEST['mode'] : '';
 $id = $_REQUEST['id'] ? $_REQUEST['id'] : '';
-if ($id == '') {
-    $backgroundFile = file_get_contents('background');
-    $background = (file_exists($backgroundFile)) ? $backgroundFile : 'https://github.com/eurohouse/eurohot/blob/main/back.canada.png?raw=true';
-} else {
-    $pkgID = $id;
-    $pkgOpen = file_get_contents($pkgID.'.pkg');
-    $pkgExp = explode('=|1|=', $pkgOpen);
-    $pkgHead = $pkgExp[0];
-    $pkgHeadExp = explode('=|2|=', $pkgHead);
-    $pkgAuthor = $pkgHeadExp[0];
-    $pkgWorkspace = $pkgHeadExp[1];
-    $pkgVersion = $pkgHeadExp[2];
-    $pkgBuild = $pkgHeadExp[3];
-    $pkgCreated = $pkgHeadExp[4];
-    $pkgDescription = $pkgHeadExp[5];
-    $pkgBody = $pkgExp[1];
-    if (isset($pkgHeadExp[6])) {
-        $pkgLaunch = $pkgHeadExp[6];
-        $pkgLaunchExp = explode('=|3|=', $pkgLaunch);
-        $pkgLaunchTitle = $pkgLaunchExp[0];
-        $pkgLaunchAuthor = $pkgLaunchExp[1];
-        $pkgLaunchApp = $pkgLaunchExp[2];
-        $pkgLaunchCover = $pkgID.'.cover.png';
-        $pkgLaunchBack = $pkgID.'.back.png';
-        $background = $pkgLaunchBack;
+if ($mode == '') {
+    if ($id == '') {
+        $backgroundFile = file_get_contents('background');
+        $background = (file_exists($backgroundFile)) ? $backgroundFile : 'https://github.com/eurohouse/eurohot/blob/main/back.ocean.png?raw=true';
+    } else {
+        $pkgID = $id;
+        $pkgOpen = file_get_contents($pkgID.'.pkg');
+        $pkgExp = explode('=|1|=', $pkgOpen);
+        $pkgHead = $pkgExp[0];
+        $pkgHeadExp = explode('=|2|=', $pkgHead);
+        $pkgAuthor = $pkgHeadExp[0];
+        $pkgWorkspace = $pkgHeadExp[1];
+        $pkgVersion = $pkgHeadExp[2];
+        $pkgBuild = $pkgHeadExp[3];
+        $pkgCreated = $pkgHeadExp[4];
+        $pkgDescription = $pkgHeadExp[5];
+        $pkgBody = $pkgExp[1];
+        if (isset($pkgHeadExp[6])) {
+            $pkgLaunch = $pkgHeadExp[6];
+            $pkgLaunchExp = explode('=|3|=', $pkgLaunch);
+            $pkgLaunchTitle = $pkgLaunchExp[0];
+            $pkgLaunchApp = $pkgLaunchExp[1];
+            $pkgLaunchCover = $pkgID.'.cover.png';
+            $pkgLaunchBack = $pkgID.'.back.png';
+            $background = $pkgLaunchBack;
+        }
     }
+} elseif ($mode == 'store') {
     $backgroundFile = file_get_contents('background');
-    $background = (file_exists($backgroundFile)) ? $backgroundFile : 'https://github.com/eurohouse/eurohot/blob/main/back.canada.png?raw=true';
+    $background = (file_exists($backgroundFile)) ? $backgroundFile : 'https://github.com/eurohouse/eurohot/blob/main/back.ocean.png?raw=true';
+} else {
+    $backgroundFile = file_get_contents('background');
+    $background = (file_exists($backgroundFile)) ? $backgroundFile : 'https://github.com/eurohouse/eurohot/blob/main/back.ocean.png?raw=true';
 }
 ?>
 <html>
@@ -80,7 +86,7 @@ input, select, textarea {
     opacity: 0.75;
     position: absolute;
     width: 92%;
-    height: 13%;
+    height: 10%;
     top: 4%;
     left: 4%;
 }
@@ -92,7 +98,7 @@ input, select, textarea {
     position: absolute;
     width: 92%;
     height: 77%;
-    top: 17%;
+    top: 14%;
     left: 4%;
     overflow-y: scroll;
 }
@@ -139,13 +145,18 @@ input, select, textarea {
 </head>
 <body>
 <div class='top'>
+<p align='center'>
 <input class='actionButton' type='button' value="Home" onclick="window.location.href='index.php';">
-<input class='actionButton' type='button' value="Store" onclick="window.location.href='store.php';">
+<input class='actionButton' type='button' value="Store" onclick="window.location.href='index.php?mode=store';">
 <input class='actionButton' type='button' value="Update" onclick="get('i','from','steam','<?=$srcPubRepo;?>');">
 <input class='actionButton' type='button' value="Exit" onclick="get('r','steam','hsis','<?=$srcPubRepo;?>');">
+</p>
 </div>
 <div class='panel'>
-<?php if ($id == '') { ?>
+<?php
+if ($mode == '') {
+    if ($id == '') {
+?>
 <p align='center'>
 <?php
     foreach ($list as $key=>$value) {
@@ -165,8 +176,7 @@ input, select, textarea {
             $pkgLaunch = $pkgHeadExp[6];
             $pkgLaunchExp = explode('=|3|=', $pkgLaunch);
             $pkgLaunchTitle = $pkgLaunchExp[0];
-            $pkgLaunchAuthor = $pkgLaunchExp[1];
-            $pkgLaunchApp = $pkgLaunchExp[2];
+            $pkgLaunchApp = $pkgLaunchExp[1];
             $pkgLaunchCover = $pkgID.'.cover.png';
             $pkgLaunchBack = $pkgID.'.back.png';
 ?>
@@ -175,8 +185,15 @@ input, select, textarea {
 </p>
 <?php } else { ?>
     <h2 align='center'><img style="height:92px;position:relative;" src="<?=$pkgLaunchCover;?>"> <?=$pkgLaunchTitle;?></h2>
-    <p align='center'><?=$phpLaunchAuthor;?></p>
-    <p align='center'><input class='actionButton' type='button' value="Play" onclick="window.location.href='<?=$pkgLaunchApp;?>';"></p>
+    <p align='center'><?=$pkgDescription;?></p>
+    <p align='center'>
+        <input class='actionButton' type='button' value="Play" onclick="window.location.href='<?=$pkgLaunchApp;?>';">
+         <input class='actionButton' type='button' value="Back" onclick="window.location.href='index.php';">
+    </p>
+<?php }} elseif ($mode == 'store') { ?>
+
+<?php } else { ?>
+
 <?php } ?>
 </div>
 </body>
