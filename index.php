@@ -190,13 +190,13 @@ if ($mode == '') {
          <input class='actionButton' type='button' value="Back" onclick="window.location.href='index.php';">
     </p>
 <?php }} elseif ($mode == 'store') { ?>
-    <label>Install a new game: </label>
-    <input type="text" style="width:40%;position:relative;" value="" onkeydown="if (event.keyCode == 13) {
+    <label>Install a new game: </label><br>
+    <input type="text" style="width:20%;position:relative;" value="" onkeydown="if (event.keyCode == 13) {
     get('i','from',this.value,distSel.options[distSel.selectedIndex].id);
 }">
-    <select id='distSel'>
-        <option id="flossely">Web FLOSS</option>
-        <option id="eurohouse">Apple Web</option>
+    <select id='distSel' style="width:10%;position:relative;">
+        <option id="flossely">Flossely</option>
+        <option id="applesys">iWeb</option>
         <option id="eurohouse">Eurohouse</option>
     </select>
 <?php } else { ?>
