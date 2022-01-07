@@ -190,7 +190,10 @@ if ($mode == '') {
          <input class='actionButton' type='button' value="Back" onclick="window.location.href='index.php';">
     </p>
 <?php }} elseif ($mode == 'store') { ?>
-
+    <label>Install a new game: </label><br>
+    <input type="text" style="width:40%;position:relative;" value="" onkeydown="if (event.keyCode == 13) {
+    get('i','from',this.value,'flossely');
+}">
 <?php } else { ?>
 
 <?php } ?>
