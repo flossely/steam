@@ -192,14 +192,9 @@ if ($mode == '') {
 <?php }} elseif ($mode == 'store') { ?>
     <p align='center'>
     <label>Install a new game: </label><br>
-    <input type="text" style="width:20%;position:relative;" value="" onkeydown="if (event.keyCode == 13) {
-    get('i','from',this.value,distSel.options[distSel.selectedIndex].id);
+    <input type="text" id="getMan" style="width:30%;position:relative;" value="" onkeydown="if (event.keyCode == 13) {
+    seq(getMan.value);
 }">
-    <select id='distSel'>
-        <option id="flossely">Flossely</option>
-        <option id="applesys">iWeb</option>
-        <option id="eurohouse">Eurohouse</option>
-    </select>
     </p>
 <?php } else { ?>
 
