@@ -139,8 +139,8 @@ input, select, textarea {
     opacity: 0.7;
 }
 </style>
-<script src="jquery.js"></script>
-<script src="base.js"></script>
+<script src="jquery.js?rev=<?=time();?>"></script>
+<script src="base.js?rev=<?=time();?>"></script>
 </head>
 <body>
 <div class='top'>
