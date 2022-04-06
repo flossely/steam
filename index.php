@@ -189,7 +189,7 @@ if ($mode == '') {
         <input class='actionButton' type='button' value="Play" onclick="window.location.href='<?=$pkgLaunchApp;?>';">
          <input class='actionButton' type='button' value="Back" onclick="window.location.href='index.php';"><br>
          <input class='actionButton' type='button' value="Update" onclick="get('i','','from','<?=$pkgID;?>','','<?=$pkgAuthor;?>');">
-         <input class='actionButton' type='button' value="Uninstall" onclick="get('d','','<?=$pkgID;?>','from','','here');">
+         <input class='actionButton' type='button' value="Uninstall" onclick="get('d','','<?=$pkgID;?>','from','','here',true); window.location.href = 'index.php';">
     </p>
 <?php }} elseif ($mode == 'store') { ?>
     <p align='center'>
