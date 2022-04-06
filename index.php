@@ -195,7 +195,7 @@ if ($mode == '') {
     <p align='center'>
     <label>Install a new game: </label><br>
     <input type="text" id="getMan" style="width:30%;position:relative;" value="" onkeydown="if (event.keyCode == 13) {
-    get('i', '', 'from', getMan.value, '', 'flossely');
+    get('i', '', 'from', getMan.value, '', 'flossely', true); window.location.href = 'index.php';
 }">
     </p>
 <?php } else { ?>
