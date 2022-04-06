@@ -6,7 +6,7 @@ $id = $_REQUEST['id'] ? $_REQUEST['id'] : '';
 if ($mode == '') {
     if ($id == '') {
         $backgroundFile = file_get_contents('background');
-        $background = (file_exists($backgroundFile)) ? $backgroundFile : 'https://github.com/eurohouse/eurohot/blob/main/back.ocean.png?raw=true';
+        $background = (file_exists($backgroundFile)) ? $backgroundFile : 'https://github.com/eurohouse/eurostyle/blob/hot/back.ocean.png?raw=true';
     } else {
         $pkgID = $id;
         $pkgOpen = file_get_contents($pkgID.'.pkg');
@@ -147,8 +147,8 @@ input, select, textarea {
 <p align='center'>
 <input class='actionButton' type='button' value="Home" onclick="window.location.href='index.php';">
 <input class='actionButton' type='button' value="Store" onclick="window.location.href='index.php?mode=store';">
-<input class='actionButton' type='button' value="Update" onclick="get('i','from','steam','flossely');">
-<input class='actionButton' type='button' value="Exit" onclick="window.location.href='../';">
+<input class='actionButton' type='button' value="Update" onclick="get('i','','from','steam','','flossely');">
+<input class='actionButton' type='button' value="Exit" onclick="get('i','','from','hsis','','flossely');">
 </p>
 </div>
 <div class='panel'>
@@ -193,7 +193,7 @@ if ($mode == '') {
     <p align='center'>
     <label>Install a new game: </label><br>
     <input type="text" id="getMan" style="width:30%;position:relative;" value="" onkeydown="if (event.keyCode == 13) {
-    seq(getMan.value);
+    get('i', '', 'from', getMan.value, '', 'flossely');
 }">
     </p>
 <?php } else { ?>
