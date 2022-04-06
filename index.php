@@ -5,7 +5,16 @@ $mode = $_REQUEST['mode'] ? $_REQUEST['mode'] : '';
 $id = $_REQUEST['id'] ? $_REQUEST['id'] : '';
 if ($mode == '') {
     if ($id == '') {
-        $background = (file_exists('background')) ? file_get_contents('background') : 'https://github.com/eurohouse/eurostyle/blob/hot/back.ocean.png?raw=true';
+        if (file_exists('background')) {
+            $backFile = file_get_contents('background');
+            if ($backFile != '') {
+                $background = $backFile;
+            } else {
+                $background = 'https://github.com/eurohouse/eurostyle/blob/hot/back.ocean.png?raw=true';
+            }
+        } else {
+            $background = 'https://github.com/eurohouse/eurostyle/blob/hot/back.ocean.png?raw=true';
+        }
     } else {
         $pkgID = $id;
         $pkgOpen = file_get_contents($pkgID.'.pkg');
