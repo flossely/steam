@@ -5,8 +5,7 @@ $mode = $_REQUEST['mode'] ? $_REQUEST['mode'] : '';
 $id = $_REQUEST['id'] ? $_REQUEST['id'] : '';
 if ($mode == '') {
     if ($id == '') {
-        $backgroundFile = file_get_contents('background');
-        $background = (file_exists($backgroundFile)) ? $backgroundFile : 'https://github.com/eurohouse/eurostyle/blob/hot/back.ocean.png?raw=true';
+        $background = (file_exists('background')) ? file_get_contents('background') : 'https://github.com/eurohouse/eurostyle/blob/hot/back.ocean.png?raw=true';
     } else {
         $pkgID = $id;
         $pkgOpen = file_get_contents($pkgID.'.pkg');
