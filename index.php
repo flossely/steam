@@ -18,9 +18,9 @@ if ($mode == '') {
     } else {
         $pkgID = $id;
         $pkgOpen = file_get_contents($pkgID.'.pkg');
-        $pkgExp = explode('=|1|=', $pkgOpen);
+        $pkgExp = explode('|[1]|', $pkgOpen);
         $pkgHead = $pkgExp[0];
-        $pkgHeadExp = explode('=|2|=', $pkgHead);
+        $pkgHeadExp = explode('|[2]|', $pkgHead);
         $pkgAuthor = $pkgHeadExp[0];
         $pkgWorkspace = $pkgHeadExp[1];
         $pkgVersion = $pkgHeadExp[2];
@@ -169,9 +169,9 @@ if ($mode == '') {
     foreach ($list as $key=>$value) {
         $pkgID = basename($value, '.pkg');
         $pkgOpen = file_get_contents($value);
-        $pkgExp = explode('=|1|=', $pkgOpen);
+        $pkgExp = explode('|[1]|', $pkgOpen);
         $pkgHead = $pkgExp[0];
-        $pkgHeadExp = explode('=|2|=', $pkgHead);
+        $pkgHeadExp = explode('|[2]|', $pkgHead);
         $pkgAuthor = $pkgHeadExp[0];
         $pkgWorkspace = $pkgHeadExp[1];
         $pkgVersion = $pkgHeadExp[2];
