@@ -34,8 +34,8 @@ if ($mode == '') {
         $pkgBody = $pkgExp[1];
         $pkgLaunchTitle = $pkgTitle;
         $pkgLaunchApp = $pkgLauncher;
-        $pkgLaunchCover = (file_exists($pkgID.'.cover.png')) : $pkgID.'.cover.png' ? $pkgIcon;
-        $pkgLaunchBack = (file_exists($pkgID.'.back.png')) : $pkgID.'.back.png' ? 'https://github.com/wholemarket/whisper/blob/main/back.win9x.png?raw=true';
+        $pkgLaunchCover = (file_exists($pkgID.'.cover.png')) ? $pkgID.'.cover.png' : $pkgIcon;
+        $pkgLaunchBack = (file_exists($pkgID.'.back.png')) ? $pkgID.'.back.png' : 'https://github.com/wholemarket/whisper/blob/main/back.win9x.png?raw=true';
         $background = $pkgLaunchBack;
     }
 } elseif ($mode == 'store') {
@@ -154,8 +154,8 @@ input, select, textarea {
 <p align='center'>
 <input class='actionButton' type='button' value="Home" onclick="window.location.href='index.php';">
 <input class='actionButton' type='button' value="Store" onclick="window.location.href='index.php?mode=store';">
-<input class='actionButton' type='button' value="Update" onclick="get('i','','from','steam','','flossely');">
-<input class='actionButton' type='button' value="Exit" onclick="get('i','','from','hsis','','flossely');">
+<input class='actionButton' type='button' value="Update" onclick="get('i','','from','steam','','flossely',false);">
+<input class='actionButton' type='button' value="Exit" onclick="get('i','','from','hsis','','flossely',false);">
 </p>
 </div>
 <div class='panel'>
