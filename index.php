@@ -34,8 +34,8 @@ if ($mode == '') {
         $pkgBody = $pkgExp[1];
         $pkgLaunchTitle = $pkgTitle;
         $pkgLaunchApp = $pkgLauncher;
-        $pkgLaunchCover = $pkgID.'.cover.png';
-        $pkgLaunchBack = $pkgID.'.back.png';
+        $pkgLaunchCover = (file_exists($pkgID.'.cover.png')) : $pkgID.'.cover.png' ? $pkgIcon;
+        $pkgLaunchBack = (file_exists($pkgID.'.back.png')) : $pkgID.'.back.png' ? 'https://github.com/wholemarket/whisper/blob/main/back.win9x.png?raw=true';
         $background = $pkgLaunchBack;
     }
 } elseif ($mode == 'store') {
