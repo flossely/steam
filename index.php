@@ -159,12 +159,10 @@ input, select, textarea {
 </p>
 </div>
 <div class='panel'>
-<?php
-if ($mode == '') {
-    if ($id == '') {
-?>
+<?php if ($mode == '') { ?>
 <p align='center'>
 <?php
+if ($id == '') {
     foreach ($list as $key=>$value) {
         $pkgID = basename($value, '.pkg');
         $pkgOpen = file_get_contents($value);
@@ -199,7 +197,7 @@ if ($mode == '') {
          <input class='actionButton' type='button' value="Update" onclick="get('i','','from','<?=$pkgID;?>','','<?=$pkgAuthor;?>');">
          <input class='actionButton' type='button' value="Uninstall" onclick="get('d','','<?=$pkgID;?>','from','','here',true); window.location.href = 'index.php';">
     </p>
-<?php }} elseif ($mode == 'store') { ?>
+<?php } elseif ($mode == 'store') { ?>
     <p align='center'>
     <label>Install a new game: </label><br>
     <input type="text" id="getMan" style="width:30%;position:relative;" value="" onkeydown="if (event.keyCode == 13) {
