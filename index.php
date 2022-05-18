@@ -38,7 +38,7 @@ if ($mode == '') {
             $pkgType = 'Package';
         }
         if (file_exists($pkgID.'.cover.png')) {
-            $pkgLaunchCover = $pkgID.'.cover.png';
+            $pkgIcon = $pkgID.'.cover.png';
         } else {
             if (isset($pkgHeadExp[8])) {
                 $pkgIcon = $pkgHeadExp[8];
@@ -208,7 +208,7 @@ if ($mode == '') {
             $pkgType = 'Package';
         }
         if (file_exists($pkgID.'.cover.png')) {
-            $pkgLaunchCover = $pkgID.'.cover.png';
+            $pkgIcon = $pkgID.'.cover.png';
         } else {
             if (isset($pkgHeadExp[8])) {
                 $pkgIcon = $pkgHeadExp[8];
