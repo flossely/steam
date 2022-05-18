@@ -43,7 +43,7 @@ if ($mode == '') {
             if (isset($pkgHeadExp[8])) {
                 $pkgIcon = $pkgHeadExp[8];
             } else {
-        	$pkgIcon = 'https://github.com/flossely/gnome/blob/main/sys.app.png?raw=true';
+        	$pkgIcon = 'https://github.com/eurohouse/baron/blob/main/sys.link.png?raw=true';
             }
         }
         if (isset($pkgHeadExp[9])) {
@@ -213,7 +213,7 @@ if ($mode == '') {
             if (isset($pkgHeadExp[8])) {
                 $pkgIcon = $pkgHeadExp[8];
             } else {
-        	$pkgIcon = 'https://github.com/flossely/gnome/blob/main/sys.app.png?raw=true';
+        	$pkgIcon = 'https://github.com/eurohouse/baron/blob/main/sys.link.png?raw=true';
             }
         }
         if (isset($pkgHeadExp[9])) {
