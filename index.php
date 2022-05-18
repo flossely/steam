@@ -159,10 +159,12 @@ input, select, textarea {
 </p>
 </div>
 <div class='panel'>
-<?php if ($mode == '') { ?>
+<?php
+if ($mode == '') {
+    if ($id == '') {
+?>
 <p align='center'>
 <?php
-if ($id == '') {
     foreach ($list as $key=>$value) {
         $pkgID = basename($value, '.pkg');
         $pkgOpen = file_get_contents($value);
@@ -186,7 +188,7 @@ if ($id == '') {
         $pkgLaunchBack = (file_exists($pkgID.'.back.png')) ? $pkgID.'.back.png' : 'https://github.com/wholemarket/whisper/blob/main/back.win9x.png?raw=true';
 ?>
 <img style="height:20%;position:relative;" title="<?=$pkgLaunchTitle;?>" src="<?=$pkgLaunchCover;?>" onclick="window.location.href='index.php?id=<?=$pkgID;?>';">
-<?php }} ?>
+<?php } ?>
 </p>
 <?php } else { ?>
     <h2 align='center'><img style="height:92px;position:relative;" src="<?=$pkgLaunchCover;?>"> <?=$pkgLaunchTitle;?></h2>
@@ -197,7 +199,7 @@ if ($id == '') {
          <input class='actionButton' type='button' value="Update" onclick="get('i','','from','<?=$pkgID;?>','','<?=$pkgAuthor;?>');">
          <input class='actionButton' type='button' value="Uninstall" onclick="get('d','','<?=$pkgID;?>','from','','here',true); window.location.href = 'index.php';">
     </p>
-<?php } elseif ($mode == 'store') { ?>
+<?php }} elseif ($mode == 'store') { ?>
     <p align='center'>
     <label>Install a new game: </label><br>
     <input type="text" id="getMan" style="width:30%;position:relative;" value="" onkeydown="if (event.keyCode == 13) {
