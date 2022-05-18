@@ -26,15 +26,35 @@ if ($mode == '') {
         $pkgVersion = $pkgHeadExp[2];
         $pkgBranch = $pkgHeadExp[3];
         $pkgCreated = $pkgHeadExp[4];
-        $pkgDescription = $pkgHeadExp[5];
-        $pkgTitle = $pkgHeadExp[6];
-        $pkgType = $pkgHeadExp[7];
-        $pkgIcon = $pkgHeadExp[8];
-        $pkgLauncher = $pkgHeadExp[9];
+        $pkgDescription = $pkgHeadExp[5];        
+        if (isset($pkgHeadExp[6])) {
+            $pkgTitle = $pkgHeadExp[6];
+        } else {
+            $pkgTitle = strtoupper($pkgID);
+        }
+        if (isset($pkgHeadExp[7])) {
+            $pkgType = $pkgHeadExp[7];
+        } else {
+            $pkgType = 'Package';
+        }
+        if (file_exists($pkgID.'.cover.png')) {
+            $pkgLaunchCover = $pkgID.'.cover.png';
+        } else {
+            if (isset($pkgHeadExp[8])) {
+                $pkgIcon = $pkgHeadExp[8];
+            } else {
+        	$pkgIcon = 'https://github.com/flossely/basic/blob/main/sys.app.png?raw=true';
+            }
+        }
+        if (isset($pkgHeadExp[9])) {
+            $pkgLauncher = $pkgHeadExp[9];
+        } else {
+            $pkgLauncher = 'index.php';
+        }
         $pkgBody = $pkgExp[1];
         $pkgLaunchTitle = $pkgTitle;
         $pkgLaunchApp = $pkgLauncher;
-        $pkgLaunchCover = (file_exists($pkgID.'.cover.png')) ? $pkgID.'.cover.png' : $pkgIcon;
+        $pkgLaunchCover = $pkgIcon;
         $pkgLaunchBack = (file_exists($pkgID.'.back.png')) ? $pkgID.'.back.png' : 'https://github.com/wholemarket/whisper/blob/main/back.win9x.png?raw=true';
         $background = $pkgLaunchBack;
     }
@@ -177,14 +197,34 @@ if ($mode == '') {
         $pkgBranch = $pkgHeadExp[3];
         $pkgCreated = $pkgHeadExp[4];
         $pkgDescription = $pkgHeadExp[5];
-        $pkgTitle = $pkgHeadExp[6];
-        $pkgType = $pkgHeadExp[7];
-        $pkgIcon = $pkgHeadExp[8];
-        $pkgLauncher = $pkgHeadExp[9];
+        if (isset($pkgHeadExp[6])) {
+            $pkgTitle = $pkgHeadExp[6];
+        } else {
+            $pkgTitle = strtoupper($pkgID);
+        }
+        if (isset($pkgHeadExp[7])) {
+            $pkgType = $pkgHeadExp[7];
+        } else {
+            $pkgType = 'Package';
+        }
+        if (file_exists($pkgID.'.cover.png')) {
+            $pkgLaunchCover = $pkgID.'.cover.png';
+        } else {
+            if (isset($pkgHeadExp[8])) {
+                $pkgIcon = $pkgHeadExp[8];
+            } else {
+        	$pkgIcon = 'https://github.com/flossely/basic/blob/main/sys.app.png?raw=true';
+            }
+        }
+        if (isset($pkgHeadExp[9])) {
+            $pkgLauncher = $pkgHeadExp[9];
+        } else {
+            $pkgLauncher = 'index.php';
+        }
         $pkgBody = $pkgExp[1];
         $pkgLaunchTitle = $pkgTitle;
         $pkgLaunchApp = $pkgLauncher;
-        $pkgLaunchCover = (file_exists($pkgID.'.cover.png')) ? $pkgID.'.cover.png' : $pkgIcon;
+        $pkgLaunchCover = $pkgIcon;
         $pkgLaunchBack = (file_exists($pkgID.'.back.png')) ? $pkgID.'.back.png' : 'https://github.com/wholemarket/whisper/blob/main/back.win9x.png?raw=true';
 ?>
 <img style="height:20%;position:relative;" title="<?=$pkgLaunchTitle;?>" src="<?=$pkgLaunchCover;?>" onclick="window.location.href='index.php?id=<?=$pkgID;?>';">
