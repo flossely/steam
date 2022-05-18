@@ -172,19 +172,20 @@ if ($mode == '') {
         $pkgHead = $pkgExp[0];
         $pkgHeadExp = explode('|[2]|', $pkgHead);
         $pkgAuthor = $pkgHeadExp[0];
-        $pkgWorkspace = $pkgHeadExp[1];
+        $pkgProject = $pkgHeadExp[1];
         $pkgVersion = $pkgHeadExp[2];
-        $pkgBuild = $pkgHeadExp[3];
+        $pkgBranch = $pkgHeadExp[3];
         $pkgCreated = $pkgHeadExp[4];
         $pkgDescription = $pkgHeadExp[5];
+        $pkgTitle = $pkgHeadExp[6];
+        $pkgType = $pkgHeadExp[7];
+        $pkgIcon = $pkgHeadExp[8];
+        $pkgLauncher = $pkgHeadExp[9];
         $pkgBody = $pkgExp[1];
-        if (isset($pkgHeadExp[6])) {
-            $pkgLaunch = $pkgHeadExp[6];
-            $pkgLaunchExp = explode('=|3|=', $pkgLaunch);
-            $pkgLaunchTitle = $pkgLaunchExp[0];
-            $pkgLaunchApp = $pkgLaunchExp[1];
-            $pkgLaunchCover = $pkgID.'.cover.png';
-            $pkgLaunchBack = $pkgID.'.back.png';
+        $pkgLaunchTitle = $pkgTitle;
+        $pkgLaunchApp = $pkgLauncher;
+        $pkgLaunchCover = (file_exists($pkgID.'.cover.png')) ? $pkgID.'.cover.png' : $pkgIcon;
+        $pkgLaunchBack = (file_exists($pkgID.'.back.png')) ? $pkgID.'.back.png' : 'https://github.com/wholemarket/whisper/blob/main/back.win9x.png?raw=true';
 ?>
 <img style="height:20%;position:relative;" title="<?=$pkgLaunchTitle;?>" src="<?=$pkgLaunchCover;?>" onclick="window.location.href='index.php?id=<?=$pkgID;?>';">
 <?php }} ?>
